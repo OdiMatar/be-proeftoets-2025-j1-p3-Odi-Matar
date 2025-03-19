@@ -352,3 +352,30 @@ VALUES
  ,('Taylor Swift', 570,'Verenigde Staten', '+13421 231356', 34, 1, NULL, SYSDATE(6), SYSDATE(6))
  ,('Beyoncé', 420,'Verenigde Staten', '+18723 213481', 41, 1, NULL, SYSDATE(6), SYSDATE(6))
  ,('Jennifer Lopez', 400,'Verenigde Staten', '+16254 751243', 54, 1, NULL, SYSDATE(6), SYSDATE(6));
+
+ CREATE TABLE Producten
+(
+     Id                 INT             UNSIGNED    NOT NULL        AUTO_INCREMENT,
+     Naam               VARCHAR(100)                 NOT NULL,
+     Beschrijving       TEXT                         NULL,
+     Prijs              DECIMAL(10,2)    UNSIGNED    NOT NULL,
+     Voorraad           INT             UNSIGNED    NOT NULL DEFAULT 0,
+     IsActief           BIT                         NOT NULL DEFAULT 1,
+     DatumAangemaakt    DATETIME(6)                 NOT NULL,
+     DatumGewijzigd     DATETIME(6)                 NOT NULL,
+     CONSTRAINT PK_Producten_Id PRIMARY KEY CLUSTERED(Id)
+) ENGINE=InnoDB;
+
+INSERT INTO Producten 
+(Naam, Beschrijving, Prijs, Voorraad, IsActief, DatumAangemaakt, DatumGewijzigd) 
+VALUES 
+('Laptop', 'Een krachtige laptop voor werk en gaming', 999.99, 10, 1, NOW(), NOW()),
+('Smartphone', 'Nieuwste model met geavanceerde camera', 799.99, 25, 1, NOW(), NOW()),
+('Draadloze Koptelefoon', 'Active noise cancelling en lange batterijduur', 199.99, 15, 1, NOW(), NOW()),
+('Game Console', 'De nieuwste generatie gameconsole', 499.99, 5, 1, NOW(), NOW()),
+('Tablet', 'Handige tablet voor entertainment en werk', 299.99, 12, 1, NOW(), NOW()),
+('Smartwatch', 'Slim horloge met gezondheidsfuncties', 149.99, 30, 1, NOW(), NOW()),
+('Bluetooth Speaker', 'Draagbare speaker met krachtig geluid', 89.99, 20, 1, NOW(), NOW()),
+('Gaming Muis', 'Ergonomische muis met RGB-verlichting', 59.99, 50, 1, NOW(), NOW());
+
+

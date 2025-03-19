@@ -22,6 +22,8 @@
 
             <a href="<?= URLROOT; ?>/zangeres/index">Overzicht Zangeres</a>
 
+            <a href="<?= URLROOT; ?>/producten/index">Overzicht Producten</a>
+
             
 
         </div>
