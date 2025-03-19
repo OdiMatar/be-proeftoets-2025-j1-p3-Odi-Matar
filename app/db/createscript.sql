@@ -1,45 +1,46 @@
 -- Step: 01
 -- ***************************************************************
--- Doel : Maak een nieuwe database aan met de naam Mvc_smartphone_2408C
+-- Doel : Maak een nieuwe database aan met de naam Mvc_smartphone_2408B
 -- ***************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           12-02-2025       Odi Matar    Smartphones
+-- 01           13-11-2024      Arjan de Ruijter    Smartphones
 -- ***************************************************************
 
--- Verwijder database Mvc_smartphone_2408C
-DROP DATABASE IF EXISTS `Mvc_smartphones_2408C`;
+-- Verwijder database Mvc_smartphone_2408B
+DROP DATABASE IF EXISTS `Mvc_smartphone_2408B`;
 
--- Maak een nieuwe database aan Mvc_smartphone_2408C
-CREATE DATABASE `Mvc_smartphones_2408C`;
+-- Maak een nieuwe database aan Mvc_smartphone_2408B
+CREATE DATABASE `Mvc_smartphone_2408B`;
 
--- Gebruik database Mvc_smartphone_2408C
-USE `Mvc_smartphones_2408C`;
+-- Gebruik database Mvc_smartphone_2408B
+USE `Mvc_smartphone_2408B`;
 
 -- Step: 02
 -- ***************************************************************
 -- Doel : Maak een nieuwe tabel aan met de naam Smartphones
--- ***************************************************************
+-- ***************************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           12-02-2025       Odi Matar    Tabel Smartphones
--- ***************************************************************
+-- 01           11-02-2025      Arjan de Ruijter    Tabel Smartphones
+-- ****************************************************************************
 -- Onderstaande velden toevoegen aan de tabel Smartphones
 -- Merk, Model, Prijs, Geheugen, Besturingssysteem, 
--- Schermgrootte, Releasedatum, MegaPixels
--- ***************************************************************
+-- Schermgrootte, Releasedatum, Gewicht, Simlockvrij
+-- ****************************************************************************
 
 CREATE TABLE Smartphones
 (
      Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
     ,Merk               VARCHAR(50)                 NOT NULL
-    ,Model              VARCHAR(50)                 NOT NULL     
-    ,Prijs 		    DECIMAL(6,2)                NOT NULL
-    ,Geheugen           DECIMAL(4,0)                NOT NULL 
-    ,Besturingssysteem  VARCHAR(25)			  NOT NULL
-    ,Schermgrootte      DECIMAL(3,2)			  NOT NULL
-    ,Releasedatum	    DATE 					  NOT NULL
-    ,MegaPixels	    DECIMAL(3,0)			  NOT NULL
+    ,Model              VARCHAR(50)                 NOT NULL
+    ,Prijs              DECIMAL(6,2)                NOT NULL
+    ,Geheugen           DECIMAL(4,0)                NOT NULL         
+    ,Besturingssysteem  VARCHAR(25)                 NOT NULL
+    ,Schermgrootte	    DECIMAL(4,2)			  NOT NULL
+    ,Releasedatum	    DATE 					  NOT NULL     
+    ,Gewicht            DECIMAL(3,0)                NOT NULL 
+    ,Simlockvrij        BIT                         NOT NULL        DEFAULT 1           
     ,IsActief           BIT                         NOT NULL        DEFAULT 1
     ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt    DATETIME(6)                 NOT NULL
@@ -53,7 +54,7 @@ CREATE TABLE Smartphones
 -- ***************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           12-02-2025       Odi Matar    Vulling Smartphones
+-- 01           11-02-2025      Arjan de Ruijter    Vulling Smartphones
 -- ***************************************************************
 
 INSERT INTO Smartphones
@@ -62,23 +63,23 @@ INSERT INTO Smartphones
      ,Model
      ,Prijs
      ,Geheugen
-     ,Besturingssysteem 
+     ,Besturingssysteem
      ,Schermgrootte
      ,Releasedatum
-     ,MegaPixels
+     ,Gewicht
+     ,Simlockvrij
      ,IsActief
      ,Opmerking
      ,DatumAangemaakt
      ,DatumGewijzigd
 )
 VALUES
- ('Apple', 'iPhone 16 Pro', 1256.56, 64, 'iOS 18', 6.7, '2025-01-19', 50, 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('Samsung', 'Galaxy S25 Ultra', 1539, 128, 'Android 15', 6.1, '2025-02-01', 200, 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('Google', 'Pixel 9 Pro', 890, 1024, 'Android 15', 6.3, '2024-12-20', 100, 1, NULL, SYSDATE(6), SYSDATE(6));
+ ('Apple', 'iPhone 16 Pro', 1260, 512, 'iOS 18', 6.7, '2024-09-14', 234, 0,  1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('Samsung', 'Galaxy S25 Ultra', 1324, 256, 'Android 15', 8.1, '2024-09-20', 123, 1,  1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('Google', 'Pixel 9 Pro', 1152, 1000, 'Android 15', 9.0, '2025-01-20', 280, 1, 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
-
-
+ 
 
 -- Step: 04
 -- *****************************************************************************************************
@@ -86,7 +87,7 @@ VALUES
 -- *****************************************************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           18-02-2025       Odi Matar    Tabel Sneakers
+-- 01           18-02-2025      Arjan de Ruijter    Tabel Sneakers
 -- *****************************************************************************************************
 -- Onderstaande velden toevoegen aan de tabel Sneakers
 -- Type (Hardloop, Basketbal, Casual), Prijs, Materiaal (Leer, Mesh, Synthetisch), Gewicht, Releasedatum
@@ -102,16 +103,16 @@ CREATE TABLE Sneakers
     ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
     ,DatumAangemaakt    DATETIME(6)                 NOT NULL
     ,DatumGewijzigd     DATETIME(6)                 NOT NULL
-    ,CONSTRAINT         PK_Smartphones_Id    PRIMARY KEY     CLUSTERED(Id)
+    ,CONSTRAINT         PK_Sneakers_Id    PRIMARY KEY     CLUSTERED(Id)
 ) ENGINE=InnoDB;
 
--- Step: 05
+-- Step: 04
 -- *****************************************************************
 -- Doel : Vul de tabel Sneakers met gegevens
 -- *****************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           18-02-2025       Odi Matar    Vulling Sneakers
+-- 01           18-02-2025      Arjan de Ruijter    Vulling Sneakers
 -- *****************************************************************
 
 INSERT INTO Sneakers
@@ -125,20 +126,20 @@ INSERT INTO Sneakers
      ,DatumGewijzigd
 )
 VALUES
- ('Nike', 'Air Jordan 1', 'Hardloop', 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('Adidas', 'Yeezy Boost 350', 'Basketbal', 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('New Balance', 'Pixel 9 Pro', 'Casual', 1, NULL, SYSDATE(6), SYSDATE(6));
+ ('Nike', 'Air Jordan 1', 'Basketbal', 1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('Adidas', 'Yeezy Boost 350', 'Casual', 1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('New Balance', 'Pixel 9 Pro', 'Hardloop', 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
- 
 
--- Step: 06
+
+ -- Step: 06
 -- *****************************************************************************************************
 -- Doel : Maak een nieuwe tabel aan met de naam Horloges
 -- *****************************************************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           11-03-2025       Odi Matar    Tabel Horloges
+-- 01           11-03-2025      Arjan de Ruijter    Tabel Horloges
 -- *****************************************************************************************************
 -- Onderstaande velden toevoegen aan de tabel Horloges
 -- Materiaal (Goud, Diamant, RVS), Gewicht, Releasedatum, Waterdichtheid(m), Type (Analoog, Digitaal), Uniek kenmerk
@@ -187,13 +188,13 @@ VALUES
 
 
  
--- Step: 08
+ -- Step: 08
 -- *****************************************************************************************************
 -- Doel : Maak een nieuwe tabel aan met de naam Torens
 -- *****************************************************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           11-03-2025      Odi Matar    Tabel Torens
+-- 01           11-03-2025      Arjan de Ruijter    Tabel Torens
 -- *****************************************************************************************************
 -- Onderstaande velden zelf toevoegen aan de tabel Torens
 -- Kosten, liftsnelheid, Obeservatiedek hoogte
@@ -220,7 +221,7 @@ CREATE TABLE Torens
 -- *****************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           11-3-2025      Odi Matar    Vulling Torens
+-- 01           11-3-2025      Arjan de Ruijter    Vulling Torens
 -- *****************************************************************
 
 INSERT INTO Torens
@@ -243,13 +244,13 @@ VALUES
 
 
 
--- Step: 10
+  -- Step: 10
 -- *****************************************************************************************************
 -- Doel : Maak een nieuwe tabel aan met de naam Speakers
 -- *****************************************************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           11-03-2025      Odi Matar    Tabel Speakers
+-- 01           11-03-2025      Arjan de Ruijter    Tabel Speakers
 -- *****************************************************************************************************
 -- Onderstaande velden zelf toevoegen aan de tabel Speakers
 -- frequentiebereik, Powerbankfunctie, Snelladen
@@ -275,7 +276,7 @@ CREATE TABLE Speakers
 -- *****************************************************************
 -- Versie       Datum           Auteur              Omschrijving
 -- ******       *****           ******              ************
--- 01           11-3-2025      OdiMatar     Vulling Speakers
+-- 01           11-3-2025      Arjan de Ruijter     Vulling Speakers
 -- *****************************************************************
 
 INSERT INTO Speakers
@@ -296,7 +297,9 @@ VALUES
  ('Ultimate Ears (UE) Boom 3', 15, 'IP67 (waterdicht en drijvend!)', 'Bluetooth 5.0', 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
- -- Step: 12
+ 
+
+-- Step: 12
 -- *****************************************************************************************************
 -- Doel : Maak een nieuwe tabel aan met de naam Zangeres
 -- *****************************************************************************************************

@@ -12,11 +12,17 @@
 
             <a href="<?= URLROOT; ?>/smartphones/index">Overzicht smartphones</a> |
 
-            <a href="<?= URLROOT; ?>/sneakers/index">Mooiste sneakers</a>
+            <a href="<?= URLROOT; ?>/sneakers/index">Overzicht sneakers</a>
 
-            <a href="<?= URLROOT; ?>/horloges/index">Duurste Horloges</a>
+            <a href="<?= URLROOT; ?>/horloges/index">Overzicht horloges</a>
 
-            <a href="<?= URLROOT; ?>/zangeres/index">Top 5 Rijkste zangeressen ter wereld </a>
+            <a href="<?= URLROOT; ?>/torens/index">Overzicht Torens</a>
+
+            <a href="<?= URLROOT; ?>/speakers/index">Overzicht Speakers</a>
+
+            <a href="<?= URLROOT; ?>/zangeres/index">Overzicht Zangeres</a>
+
+            
 
         </div>
         
