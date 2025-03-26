@@ -13,20 +13,22 @@
                 <thead>
                     <tr>
                         <th>Naam</th>
-                        <th>Locatie</th>
                         <th>Hoogte (m)</th>
-                        <th>Aantal Verdiepingen</th>
-                        <th>Jaar Voltooid</th>
+                        <th>Land</th>
+                        <th>Laatste Uitbarsting</th>
+                        <th>Slachtoffers</th>
+                     
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach($data['torens'] as $toren) : ?>
+                    <?php foreach($data['vulkanen'] as $vulkaan) : ?>
                         <tr>
-                            <td><?= htmlspecialchars($toren->Naam); ?></td>
-                            <td><?= htmlspecialchars($toren->Locatie); ?></td>
-                            <td><?= htmlspecialchars($toren->Hoogte); ?></td>
-                            <td><?= htmlspecialchars($toren->AantalVerdiepingen); ?></td>
-                            <td><?= (int)$toren->JaarVoltooid; ?></td>
+                            <td><?= htmlspecialchars($vulkaan->Naam); ?></td>
+                            <td><?= $vulkaan->Hoogte; ?></td>
+                            <td><?= htmlspecialchars($vulkaan->Land); ?></td>
+                            <td><?= htmlspecialchars($vulkaan->JaarLaatsteUitbarsting); ?></td>
+                            <td><?= $vulkaan->AantalSlachtoffers; ?></td>
+                    
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -35,6 +37,6 @@
             <a href="<?= URLROOT; ?>/homepages/index" class="btn btn-primary">Homepagina</a>
         </div>
     </div>
-    <!-- Einde tabel -->
 
 <?php require APPROOT . '/views/includes/footer.php'; ?>
+

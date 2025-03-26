@@ -24,6 +24,10 @@
 
             <a href="<?= URLROOT; ?>/producten/index">Overzicht Producten</a>
 
+            <a href="<?= URLROOT; ?>/vulkanen/index">Actiefste Vulkanen</a>
+
+            
+
             
 
         </div>
