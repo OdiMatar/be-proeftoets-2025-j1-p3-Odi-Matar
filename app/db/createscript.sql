@@ -8,13 +8,13 @@
 -- ***************************************************************
 
 -- Verwijder database Mvc_smartphone_2408B
-DROP DATABASE IF EXISTS `Mvc_smartphone_2408B`;
+DROP DATABASE IF EXISTS `Mvc_smartphone_2408C`;
 
 -- Maak een nieuwe database aan Mvc_smartphone_2408B
-CREATE DATABASE `Mvc_smartphone_2408B`;
+CREATE DATABASE `Mvc_smartphone_2408C`;
 
 -- Gebruik database Mvc_smartphone_2408B
-USE `Mvc_smartphone_2408B`;
+USE `Mvc_smartphone_2408C`;
 
 -- Step: 02
 -- ***************************************************************

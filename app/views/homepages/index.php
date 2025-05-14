@@ -20,7 +20,7 @@
 
             <a href="<?= URLROOT; ?>/speakers/index">Overzicht Speakers</a>
 
-            <a href="<?= URLROOT; ?>/zangeres/index">Overzicht Zangeres</a>
+           <a href="<?= URLROOT; ?>/zangeressen/index">Top 5 Zangeressen</a>
 
             <a href="<?= URLROOT; ?>/producten/index">Overzicht Producten</a>
 

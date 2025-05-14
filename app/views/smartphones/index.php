@@ -24,7 +24,6 @@
                         <th>Besturingsysteem</th>
                         <th>Schermgrootte</th>
                         <th>Releasedatum</th>
-                        <th>MegaPixels</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +36,6 @@
                             <td><?= $smartphone->Besturingssysteem; ?></td>
                             <td><?= $smartphone->Schermgrootte; ?></td>
                             <td><?= $smartphone->Releasedatum; ?></td>
-                            <td><?= $smartphone->MegaPixels; ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

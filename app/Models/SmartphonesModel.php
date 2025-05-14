@@ -12,22 +12,19 @@ class SmartphonesModel
 
     public function getAllSmartphones()
     {
-        $sql = 'SELECT  SMPS.Merk
-                       ,SMPS.Model
-                       ,SMPS.Prijs
-                       ,SMPS.Geheugen
-                       ,SMPS.Besturingssysteem
-                       ,CONCAT(SMPS.Schermgrootte, " inch") as Schermgrootte
-                       ,DATE_FORMAT(SMPS.Releasedatum, "%d/%m/%Y") as Releasedatum
-                       ,CONCAT(SMPS.MegaPixels, " MP") as MegaPixels
+       $sql = 'SELECT  SMPS.Merk
+               ,SMPS.Model
+               ,SMPS.Prijs
+               ,SMPS.Geheugen
+               ,SMPS.Besturingssysteem
+               ,CONCAT(SMPS.Schermgrootte, " inch") as Schermgrootte
+               ,DATE_FORMAT(SMPS.Releasedatum, "%d/%m/%Y") as Releasedatum
+        FROM   Smartphones as SMPS
+        ORDER BY SMPS.Schermgrootte DESC
+                ,SMPS.Prijs DESC
+                ,SMPS.Geheugen DESC
+                ,SMPS.Releasedatum DESC';
 
-                FROM   Smartphones as SMPS
-                
-                ORDER BY SMPS.Schermgrootte DESC
-                        ,SMPS.Prijs DESC
-                        ,SMPS.Geheugen DESC
-                        ,SMPS.Releasedatum DESC
-                        ,SMPS.MegaPixels DESC';
 
         $this->db->query($sql);
 
