@@ -95,40 +95,34 @@ VALUES
 
 CREATE TABLE Sneakers
 (
-     Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT
-    ,Merk               VARCHAR(50)                 NOT NULL
-    ,Model              VARCHAR(50)                 NOT NULL
-    ,Type               VARCHAR(25)                 NOT NULL	
-    ,IsActief           BIT                         NOT NULL        DEFAULT 1
-    ,Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL
-    ,DatumAangemaakt    DATETIME(6)                 NOT NULL
-    ,DatumGewijzigd     DATETIME(6)                 NOT NULL
-    ,CONSTRAINT         PK_Sneakers_Id    PRIMARY KEY     CLUSTERED(Id)
+     Id                 SMALLINT        UNSIGNED    NOT NULL        AUTO_INCREMENT,
+     Merk               VARCHAR(50)                 NOT NULL,
+     Model              VARCHAR(50)                 NOT NULL,
+     Type               VARCHAR(25)                 NOT NULL,
+     Prijs              DECIMAL(10,2)               NOT NULL DEFAULT 0.00,
+     IsActief           BIT                         NOT NULL        DEFAULT 1,
+     Opmerking          VARCHAR(255)                    NULL        DEFAULT NULL,
+     DatumAangemaakt    DATETIME(6)                 NOT NULL,
+     DatumGewijzigd     DATETIME(6)                 NOT NULL,
+     CONSTRAINT         PK_Sneakers_Id    PRIMARY KEY     CLUSTERED(Id)
 ) ENGINE=InnoDB;
 
--- Step: 04
--- *****************************************************************
--- Doel : Vul de tabel Sneakers met gegevens
--- *****************************************************************
--- Versie       Datum           Auteur              Omschrijving
--- ******       *****           ******              ************
--- 01           18-02-2025      Arjan de Ruijter    Vulling Sneakers
--- *****************************************************************
-
+-- Gegevens toevoegen
 INSERT INTO Sneakers
 (
-      Merk
-     ,Model
-     ,Type
-     ,IsActief
-     ,Opmerking
-     ,DatumAangemaakt
-     ,DatumGewijzigd
+     Merk,
+     Model,
+     Type,
+     Prijs,
+     IsActief,
+     Opmerking,
+     DatumAangemaakt,
+     DatumGewijzigd
 )
 VALUES
- ('Nike', 'Air Jordan 1', 'Basketbal', 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('Adidas', 'Yeezy Boost 350', 'Casual', 1, NULL, SYSDATE(6), SYSDATE(6)),
- ('New Balance', 'Pixel 9 Pro', 'Hardloop', 1, NULL, SYSDATE(6), SYSDATE(6));
+ ('Nike', 'Air Jordan 1', 'Basketbal', 129.99, 1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('Adidas', 'Yeezy Boost 350', 'Casual', 219.95, 1, NULL, SYSDATE(6), SYSDATE(6)),
+ ('New Balance', 'Pixel 9 Pro', 'Hardloop', 149.50, 1, NULL, SYSDATE(6), SYSDATE(6));
 
 
 

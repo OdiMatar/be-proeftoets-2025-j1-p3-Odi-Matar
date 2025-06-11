@@ -6,29 +6,51 @@ class Sneakers extends BaseController
 
     public function __construct()
     {
-         $this->sneakersModel = $this->model('SneakersModel');
+        $this->sneakersModel = $this->model('SneakersModel');
     }
 
     public function index()
     {
-       /**
-        * Hier halen we alle smartphones op uit de database
-        */
-       $result = $this->sneakersModel->getAllSneakers();
-       
-       /**
-        * Het $data-array geeft informatie mee aan de view-pagina
-        */
-       $data = [
+        $result = $this->sneakersModel->getAllSneakers();
+
+        $data = [
             'title' => 'Mooiste sneakers',
             'sneakers' => $result
-       ];
+        ];
 
-         /**
-          * Met de view-method uit de BaseController-class wordt de view
-          * aangeroepen met de informatie uit het $data-array
-          */
-       $this->view('sneakers/index', $data); 
+        $this->view('sneakers/index', $data);
     }
 
+    public function create()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Sanitize input
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+            $merk = $_POST['merk'];
+            $model = $_POST['model'];
+            $type = $_POST['type'];
+            $prijs = $_POST['prijs'];
+
+            if ($this->sneakersModel->create($merk, $model, $type, $prijs)) {
+                header("Location: " . URLROOT . "/sneakers/index");
+                exit;
+            } else {
+                die('Fout bij het toevoegen van de sneaker');
+            }
+        } else {
+            $data = ['title' => 'Sneaker toevoegen'];
+            $this->view('sneakers/create', $data);
+        }
+    }
+
+    public function delete($id)
+    {
+        if ($this->sneakersModel->delete($id)) {
+            header("Location: " . URLROOT . "/sneakers/index");
+            exit;
+        } else {
+            die("Fout bij verwijderen");
+        }
+    }
 }
