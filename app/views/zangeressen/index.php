@@ -1,24 +1,35 @@
-<?php require APPROOT . '/views/includes/header.php'; ?>
+<?php require   APPROOT . '/views/includes/header.php'; ?>
 
 <div class="container mt-3">
 
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-1"></div>
-        <div class="col-10 text-primary">        
+        <div class="col-10 text-begin text-primary">        
             <h3><?= $data['title']; ?></h3>
         </div>
         <div class="col-1"></div>
     </div>
 
-    <div class="row mt-3 mb-3">
+    <div class="row" style="display:<?= $data['message']; ?>">
         <div class="col-1"></div>
-        <div class="col-10">        
-            <a href="<?= URLROOT; ?>/zangeressen/create" class="btn btn-warning">Nieuwe zangeres</a>
+        <div class="col-10 text-begin text-primary">        
+            <div class="alert alert-success" role="alert">
+                Record is verwijderd
+            </div>
         </div>
         <div class="col-1"></div>
     </div>
 
-    <!-- Begin tabel -->
+    <div class="row mt-3 mb-3">
+
+        <div class="col-1"></div>
+        <div class="col-10 text-begin text-danger">        
+            <a href="<?= URLROOT; ?>/zangeressen/create" class="btn btn-warning" role="button">Nieuwe zangeres</a>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <!-- begin tabel -->
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
@@ -30,33 +41,38 @@
                         <th>Land</th>
                         <th>Mobiel</th>
                         <th>Leeftijd</th>
-                        <th>Actie</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($data['zangeressen'] as $zangeres): ?>
+                    <?php foreach($data['zangeressen'] as $zangeres) : ?>
                         <tr>
-                            <td><?= htmlspecialchars($zangeres->Naam); ?></td>
-                            <td><?= htmlspecialchars($zangeres->Nettowaarde); ?></td>
-                            <td><?= htmlspecialchars($zangeres->Land); ?></td>
-                            <td><?= htmlspecialchars($zangeres->Mobiel); ?></td>
-                            <td><?= htmlspecialchars($zangeres->Leeftijd); ?></td>
+                            <td><?= $zangeres->Naam; ?></td>
+                            <td><?= $zangeres->Nettowaarde; ?></td>
+                            <td><?= $zangeres->Land; ?></td>
+                            <td><?= $zangeres->Mobiel; ?></td>
+                            <td><?= $zangeres->Leeftijd; ?></td>
                             <td>
-                                <a href="<?= URLROOT; ?>/zangeressen/delete/<?= $zangeres->Id; ?>" onclick="return confirm('Weet je zeker dat je deze zangeres wilt verwijderen?');">
+                                <a href="<?= URLROOT; ?>/zangeressen/update/<?= $zangeres->Id; ?>">
+                                    <i class="bi bi-pencil-square text-success"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="<?= URLROOT; ?>/zangeressen/delete/<?= $zangeres->Id; ?>">
                                     <i class="bi bi-trash3-fill text-danger"></i>
                                 </a>
                             </td>
+                            
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
 
-            <a href="<?= URLROOT; ?>/homepages/index"><i class="bi bi-arrow-left"></i> Terug</a>
+            <a href="<?= URLROOT; ?>/homepages/index"><i class="bi bi-arrow-left"></i></a>
         </div>
         <div class="col-1"></div>
     </div>
-    <!-- Einde tabel -->
+    <!-- eind tabel -->
 
-</div>
-
-<?php require APPROOT . '/views/includes/footer.php'; ?>
+<?php require   APPROOT . '/views/includes/footer.php'; ?>
